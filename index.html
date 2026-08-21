@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attention Span Prediction System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="page-shell">
+        <div class="bg-blur blur-1"></div>
+        <div class="bg-blur blur-2"></div>
+
+        <main class="app-card">
+            <section class="hero">
+                <h1>Attention Span Prediction System</h1>
+            </section>
+
+            <section class="form-section">
+                <form action="/predict" method="post" class="predict-form">
+
+                    <div class="form-group">
+                        <label>Age Range</label>
+                        <div class="option-buttons">
+                            <label class="option-card"><input type="radio" name="Age_Range" value="Below 18 years" required {% if form_data and form_data.get('Age_Range') == 'Below 18 years' %}checked{% endif %}><span>Below 18 years</span></label>
+                            <label class="option-card"><input type="radio" name="Age_Range" value="18-24 years" {% if form_data and form_data.get('Age_Range') == '18-24 years' %}checked{% endif %}><span>18-24 years</span></label>
+                            <label class="option-card"><input type="radio" name="Age_Range" value="25-31 years" {% if form_data and form_data.get('Age_Range') == '25-31 years' %}checked{% endif %}><span>25-31 years</span></label>
+                            <label class="option-card"><input type="radio" name="Age_Range" value="32-38 years" {% if form_data and form_data.get('Age_Range') == '32-38 years' %}checked{% endif %}><span>32-38 years</span></label>
+                            <label class="option-card"><input type="radio" name="Age_Range" value="Above 38 years" {% if form_data and form_data.get('Age_Range') == 'Above 38 years' %}checked{% endif %}><span>Above 38 years</span></label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Gender</label>
+                        <div class="option-buttons">
+                            <label class="option-card"><input type="radio" name="Gender" value="Male" required {% if form_data and form_data.get('Gender') == 'Male' %}checked{% endif %}><span>Male</span></label>
+                            <label class="option-card"><input type="radio" name="Gender" value="Female" {% if form_data and form_data.get('Gender') == 'Female' %}checked{% endif %}><span>Female</span></label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Occupation</label>
+                        <div class="option-buttons">
+                            <label class="option-card"><input type="radio" name="Occupation" value="Student" required {% if form_data and form_data.get('Occupation') == 'Student' %}checked{% endif %}><span>Student</span></label>
+                            <label class="option-card"><input type="radio" name="Occupation" value="Working" {% if form_data and form_data.get('Occupation') == 'Working' %}checked{% endif %}><span>Working</span></label>
+                            <label class="option-card"><input type="radio" name="Occupation" value="Both" {% if form_data and form_data.get('Occupation') == 'Both' %}checked{% endif %}><span>Both</span></label>
+                            <label class="option-card"><input type="radio" name="Occupation" value="Other" {% if form_data and form_data.get('Occupation') == 'Other' %}checked{% endif %}><span>Other</span></label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Education Level</label>
+                        <div class="option-buttons">
+                            <label class="option-card"><input type="radio" name="Education_Level" value="Higher Secondary" required {% if form_data and form_data.get('Education_Level') == 'Higher Secondary' %}checked{% endif %}><span>Higher Secondary</span></label>
+                            <label class="option-card"><input type="radio" name="Education_Level" value="Undergraduate" {% if form_data and form_data.get('Education_Level') == 'Undergraduate' %}checked{% endif %}><span>Undergraduate</span></label>
+                            <label class="option-card"><input type="radio" name="Education_Level" value="Graduate" {% if form_data and form_data.get('Education_Level') == 'Graduate' %}checked{% endif %}><span>Graduate</span></label>
+                            <label class="option-card"><input type="radio" name="Education_Level" value="Postgraduate" {% if form_data and form_data.get('Education_Level') == 'Postgraduate' %}checked{% endif %}><span>Postgraduate</span></label>
+                            <label class="option-card"><input type="radio" name="Education_Level" value="Other" {% if form_data and form_data.get('Education_Level') == 'Other' %}checked{% endif %}><span>Other</span></label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Sleep Hours</label>
+                        <div class="option-buttons">
+                            <label class="option-card"><input type="radio" name="Sleep_Hours" value="Less than 5 hours" required {% if form_data and form_data.get('Sleep_Hours') == 'Less than 5 hours' %}checked{% endif %}><span>Less than 5 hours</span></label>
+                            <label class="option-card"><input type="radio" name="Sleep_Hours" value="5-6 hours" {% if form_data and form_data.get('Sleep_Hours') == '5-6 hours' %}checked{% endif %}><span>5-6 hours</span></label>
+                            <label class="option-card"><input type="radio" name="Sleep_Hours" value="7-8 hours" {% if form_data and form_data.get('Sleep_Hours') == '7-8 hours' %}checked{% endif %}><span>7-8 hours</span></label>
+                            <label class="option-card"><input type="radio" name="Sleep_Hours" value="9 hours or more" {% if form_data and form_data.get('Sleep_Hours') == '9 hours or more' %}checked{% endif %}><span>9 hours or more</span></label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Sleep Quality</label>
+                        <div class="option-buttons">
+                            <label class="option-card"><input type="radio" name="Sleep_Quality" value="1" required {% if form_data and form_data.get('Sleep_Quality') == '1' %}checked{% endif %}><span>1</span></label>
+                            <label class="option-card"><input type="radio" name="Sleep_Quality" value="2" {% if form_data and form_data.get('Sleep_Quality') == '2' %}checked{% endif %}><span>2</span></label>
+                            <label class="option-card"><input type="radio" name="Sleep_Quality" value="3" {% if form_data and form_data.get('Sleep_Quality') == '3' %}checked{% endif %}><span>3</span></label>
+                            <label class="option-card"><input type="radio" name="Sleep_Quality" value="4" {% if form_data and form_data.get('Sleep_Quality') == '4' %}checked{% endif %}><span>4</span></label>
+                            <label class="option-card"><input type="radio" name="Sleep_Quality" value="5" {% if form_data and form_data.get('Sleep_Quality') == '5' %}checked{% endif %}><span>5</span></label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Physical Activity</label>
+                        <div class="option-buttons">
+                            <label class="option-card"><input type="radio" name="Physical_Activity" value="Never" required {% if form_data and form_data.get('Physical_Activity') == 'Never' %}checked{% endif %}><span>Never</span></label>
+                            <label class="option-card"><input type="radio" name="Physical_Activity" value="1-3 days" {% if form_data and form_data.get('Physical_Activity') == '1-3 days' %}checked{% endif %}><span>1-3 days</span></label>
+                            <label class="option-card"><input type="radio" name="Physical_Activity" value="3-5 days" {% if form_data and form_data.get('Physical_Activity') == '3-5 days' %}checked{% endif %}><span>3-5 days</span></label>
+                            <label class="option-card"><input type="radio" name="Physical_Activity" value="more than 5 days" {% if form_data and form_data.get('Physical_Activity') == 'more than 5 days' %}checked{% endif %}><span>More than 5 days</span></label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Screen Time</label>
+                        <div class="option-buttons">
+                            <label class="option-card"><input type="radio" name="Screen_Time" value="Less than 5 hours" required {% if form_data and form_data.get('Screen_Time') == 'Less than 5 hours' %}checked{% endif %}><span>Less than 5 hours</span></label>
+                            <label class="option-card"><input type="radio" name="Screen_Time" value="5-6 hours" {% if form_data and form_data.get('Screen_Time') == '5-6 hours' %}checked{% endif %}><span>5-6 hours</span></label>
+                            <label class="option-card"><input type="radio" name="Screen_Time" value="6-7 hours" {% if form_data and form_data.get('Screen_Time') == '6-7 hours' %}checked{% endif %}><span>6-7 hours</span></label>
+                            <label class="option-card"><input type="radio" name="Screen_Time" value="8 hours or more" {% if form_data and form_data.get('Screen_Time') == '8 hours or more' %}checked{% endif %}><span>8 hours or more</span></label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Stress Level</label>
+                        <div class="option-buttons">
+                            <label class="option-card"><input type="radio" name="Stress_Level" value="1" required {% if form_data and form_data.get('Stress_Level') == '1' %}checked{% endif %}><span>1</span></label>
+                            <label class="option-card"><input type="radio" name="Stress_Level" value="2" {% if form_data and form_data.get('Stress_Level') == '2' %}checked{% endif %}><span>2</span></label>
+                            <label class="option-card"><input type="radio" name="Stress_Level" value="3" {% if form_data and form_data.get('Stress_Level') == '3' %}checked{% endif %}><span>3</span></label>
+                            <label class="option-card"><input type="radio" name="Stress_Level" value="4" {% if form_data and form_data.get('Stress_Level') == '4' %}checked{% endif %}><span>4</span></label>
+                            <label class="option-card"><input type="radio" name="Stress_Level" value="5" {% if form_data and form_data.get('Stress_Level') == '5' %}checked{% endif %}><span>5</span></label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Caffeine Intake</label>
+                        <div class="option-buttons">
+                            <label class="option-card"><input type="radio" name="Caffeine_Intake" value="0 cup" required {% if form_data and form_data.get('Caffeine_Intake') == '0 cup' %}checked{% endif %}><span>0 cup</span></label>
+                            <label class="option-card"><input type="radio" name="Caffeine_Intake" value="1-2 cups" {% if form_data and form_data.get('Caffeine_Intake') == '1-2 cups' %}checked{% endif %}><span>1-2 cups</span></label>
+                            <label class="option-card"><input type="radio" name="Caffeine_Intake" value="2-3 cups" {% if form_data and form_data.get('Caffeine_Intake') == '2-3 cups' %}checked{% endif %}><span>2-3 cups</span></label>
+                            <label class="option-card"><input type="radio" name="Caffeine_Intake" value="more than 3 cups" {% if form_data and form_data.get('Caffeine_Intake') == 'more than 3 cups' %}checked{% endif %}><span>More than 3 cups</span></label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Multitasking</label>
+                        <div class="option-buttons">
+                            <label class="option-card"><input type="radio" name="Multitasking" value="Rarely" required {% if form_data and form_data.get('Multitasking') == 'Rarely' %}checked{% endif %}><span>Rarely</span></label>
+                            <label class="option-card"><input type="radio" name="Multitasking" value="Sometimes" {% if form_data and form_data.get('Multitasking') == 'Sometimes' %}checked{% endif %}><span>Sometimes</span></label>
+                            <label class="option-card"><input type="radio" name="Multitasking" value="Often" {% if form_data and form_data.get('Multitasking') == 'Often' %}checked{% endif %}><span>Often</span></label>
+                            <label class="option-card"><input type="radio" name="Multitasking" value="Always" {% if form_data and form_data.get('Multitasking') == 'Always' %}checked{% endif %}><span>Always</span></label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Long-form Content</label>
+                        <div class="option-buttons">
+                            <label class="option-card"><input type="radio" name="Long_Form_Content" value="Never" required {% if form_data and form_data.get('Long_Form_Content') == 'Never' %}checked{% endif %}><span>Never</span></label>
+                            <label class="option-card"><input type="radio" name="Long_Form_Content" value="Rarely" {% if form_data and form_data.get('Long_Form_Content') == 'Rarely' %}checked{% endif %}><span>Rarely</span></label>
+                            <label class="option-card"><input type="radio" name="Long_Form_Content" value="Sometimes" {% if form_data and form_data.get('Long_Form_Content') == 'Sometimes' %}checked{% endif %}><span>Sometimes</span></label>
+                            <label class="option-card"><input type="radio" name="Long_Form_Content" value="Often" {% if form_data and form_data.get('Long_Form_Content') == 'Often' %}checked{% endif %}><span>Often</span></label>
+                        </div>
+                    </div>
+
+                    <button id="predict-btn" class="predict-btn" type="submit">
+                        Predict Attention Level
+                    </button>
+
+                </form>
+            </section>
+
+            {% if prediction %}
+            <section class="results-grid">
+                <div class="panel result-panel">
+                    <div class="panel-header">
+                        <span class="panel-tag">Prediction Result</span>
+                        <h2>Predicted Attention Level</h2>
+                    </div>
+
+                    <div class="prediction-pill {% if prediction == 'Low' %}pill-low{% elif prediction == 'Medium' %}pill-medium{% else %}pill-high{% endif %}">
+                        {{ prediction }}
+                    </div>
+                </div>
+
+                {% if probabilities %}
+                <div class="panel">
+                    <div class="panel-header">
+                        <span class="panel-tag">Confidence</span>
+                        <h2>Prediction Confidence Scores</h2>
+                    </div>
+
+                    <div class="confidence-list">
+                        {% for label, value in probabilities.items() %}
+                        <div class="confidence-item">
+                            <div class="confidence-top">
+                                <span>{{ label }}</span>
+                                <span>{{ value }}%</span>
+                            </div>
+                            <div class="progress-track">
+                                <div class="progress-fill" style="--bar-width: {{ value | round(2) }}%;"></div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+            </section>
+
+            <section class="results-grid second-grid">
+                {% if top_features %}
+                <div class="panel">
+                    <div class="panel-header">
+                        <span class="panel-tag">Model Insight</span>
+                        <h2>Most Important Features</h2>
+                    </div>
+
+                    <div class="feature-list">
+                        {% for item in top_features %}
+                        <div class="feature-item">
+                            <div class="feature-name">{{ item['Feature'] }}</div>
+                            <div class="feature-score">
+                                {% if 'Average_Importance' in item %}
+                                    {{ item['Average_Importance']|round(4) }}
+                                {% elif 'Importance' in item %}
+                                    {{ item['Importance']|round(4) }}
+                                {% else %}
+                                    N/A
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if explanations %}
+                <div class="panel">
+                    <div class="panel-header">
+                        <span class="panel-tag">Interpretation</span>
+                        <h2>Result Explanation</h2>
+                    </div>
+
+                    <ul class="explanation-list">
+                        {% for exp in explanations %}
+                        <li>{{ exp }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+            </section>
+            {% endif %}
+        </main>
+    </div>
+</body>
+
+</html>
