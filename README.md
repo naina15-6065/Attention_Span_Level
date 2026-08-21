@@ -4,7 +4,7 @@
 
 ---
 
-## 🧠 About
+## About
 
 **Human Attention Span Level Classification System** is a machine learning-based classification system designed to predict an individual's attention span level from lifestyle and behavioral patterns. The system analyzes factors such as sleep, screen time, physical activity, stress, caffeine intake, multitasking, and long-form content engagement to classify attention levels into **Low, Medium, and High** categories.
 
@@ -12,20 +12,20 @@ The project uses a survey-based dataset containing **2,132 responses** and appli
 
 ### Key Highlights
 
-* 🤖 **Multiple ML Models** - Random Forest, XGBoost, Extra Trees, Logistic Regression, and SVM
-* 🧠 **Deep Learning Models** - ANN, MLP, DNN, and TabNet
-* 🔗 **Hybrid ML-DL Ensemble** - Combines predictions from selected high-performing models
-* 📊 **High Prediction Accuracy** - Hybrid model achieved **98.36% accuracy**
-* ⚖️ **Class Balancing** - SMOTE used to address class imbalance
-* 🔍 **Feature Importance Analysis** - Identifies the major factors influencing attention span
-* 📈 **Model Evaluation** - Accuracy, precision, recall, F1-score, confusion matrix, ROC-AUC
-* 💡 **Interpretable AI** - Permutation importance and Partial Dependence Plots used for model interpretation 
+* **Multiple ML Models** - Random Forest, XGBoost, Extra Trees, Logistic Regression, and SVM
+* **Deep Learning Models** - ANN, MLP, DNN, and TabNet
+* **Hybrid ML-DL Ensemble** - Combines predictions from selected high-performing models
+* **High Prediction Accuracy** - Hybrid model achieved **98.36% accuracy**
+* **Class Balancing** - SMOTE used to address class imbalance
+* **Feature Importance Analysis** - Identifies the major factors influencing attention span
+* **Model Evaluation** - Accuracy, precision, recall, F1-score, confusion matrix, ROC-AUC
+* **Interpretable AI** - Permutation importance and Partial Dependence Plots used for model interpretation 
 
 ---
 
-## ✨ Features
+## Features
 
-### 👤 User Information
+### User Information
 
 The system considers demographic and lifestyle-related information such as:
 
@@ -34,7 +34,7 @@ The system considers demographic and lifestyle-related information such as:
 * Occupation
 * Education level
 
-### 😴 Lifestyle Factors
+### Lifestyle Factors
 
 * Sleep duration
 * Sleep quality
@@ -42,13 +42,13 @@ The system considers demographic and lifestyle-related information such as:
 * Stress level
 * Caffeine intake
 
-### 📱 Digital & Behavioral Factors
+### Digital & Behavioral Factors
 
 * Screen time
 * Multitasking behavior
 * Long-form content engagement
 
-### 🤖 Machine Learning
+### Machine Learning
 
 Several traditional machine learning algorithms were implemented and compared:
 
@@ -58,7 +58,7 @@ Several traditional machine learning algorithms were implemented and compared:
 * Logistic Regression
 * Support Vector Machine (SVM)
 
-### 🧠 Deep Learning
+### Deep Learning
 
 The project also evaluates multiple deep learning architectures:
 
@@ -67,11 +67,11 @@ The project also evaluates multiple deep learning architectures:
 * Deep Neural Network (DNN)
 * TabNet
 
-### 🔗 Hybrid ML-DL Model
+### Hybrid ML-DL Model
 
 A hybrid ensemble model was developed by combining the probability outputs of selected high-performing models using a **weighted averaging approach**. The hybrid model achieved **98.36% accuracy**, outperforming the individual models in the experimental evaluation. 
 
-### 📊 Prediction & Analysis
+### Prediction & Analysis
 
 The system provides:
 
@@ -83,11 +83,11 @@ The system provides:
 
 The system classifies users into:
 
-* 🟢 **High Attention**
-* 🟡 **Medium Attention**
-* 🔴 **Low Attention**
+* **High Attention**
+* **Medium Attention**
+* **Low Attention**
 
-### 🔍 Feature Importance
+### Feature Importance
 
 Interpretability analysis was performed to identify the factors that contribute most to attention span prediction.
 
@@ -101,7 +101,7 @@ The major contributing factors identified in the study include:
 
 Screen time, sleep quality, and physical activity were identified among the strongest contributors through the feature importance analysis. 
 
-### 📈 Model Evaluation
+### Model Evaluation
 
 The implemented models were evaluated using several performance metrics:
 
@@ -115,7 +115,7 @@ The implemented models were evaluated using several performance metrics:
 
 ---
 
-## 🖼️ Screenshots
+## Screenshots
 
 ### Input & Prediction Interface
 
@@ -143,7 +143,7 @@ The implemented models were evaluated using several performance metrics:
 
 ---
 
-## ⚙️ Methodology
+##  Methodology
 
 The system follows a structured pipeline:
 
@@ -153,7 +153,7 @@ The dataset was collected through an online survey and includes lifestyle, behav
 
 ---
 
-## 🏆 Project Outcome
+##  Project Outcome
 
 The project successfully developed a multi-class classification system capable of predicting **Low, Medium, and High attention span levels** from lifestyle and behavioral data. The **hybrid ensemble model achieved 98.36% accuracy**, demonstrating the effectiveness of combining multiple predictive models for complex tabular data. 
 
