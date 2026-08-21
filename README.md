@@ -1,4 +1,4 @@
-# Human_Attention_Span_Level
+# Human Attention Span Level Classification System
 
 **A data-driven human attention span classification system that uses lifestyle and behavioral factors to predict attention levels as Low, Medium, or High using Machine Learning, Deep Learning, and a Hybrid ML-DL ensemble approach.**
 
@@ -25,7 +25,7 @@ The project uses a survey-based dataset containing **2,132 responses** and appli
 
 ## Features
 
-### User Information
+### 1. User Information
 
 The system considers demographic and lifestyle-related information such as:
 
@@ -34,7 +34,7 @@ The system considers demographic and lifestyle-related information such as:
 * Occupation
 * Education level
 
-### Lifestyle Factors
+### 2. Lifestyle Factors
 
 * Sleep duration
 * Sleep quality
@@ -42,13 +42,13 @@ The system considers demographic and lifestyle-related information such as:
 * Stress level
 * Caffeine intake
 
-### Digital & Behavioral Factors
+### 3. Digital & Behavioral Factors
 
 * Screen time
 * Multitasking behavior
 * Long-form content engagement
 
-### Machine Learning
+### 4. Machine Learning
 
 Several traditional machine learning algorithms were implemented and compared:
 
@@ -58,7 +58,7 @@ Several traditional machine learning algorithms were implemented and compared:
 * Logistic Regression
 * Support Vector Machine (SVM)
 
-### Deep Learning
+### 5. Deep Learning
 
 The project also evaluates multiple deep learning architectures:
 
@@ -67,11 +67,11 @@ The project also evaluates multiple deep learning architectures:
 * Deep Neural Network (DNN)
 * TabNet
 
-### Hybrid ML-DL Model
+### 6. Hybrid ML-DL Model
 
 A hybrid ensemble model was developed by combining the probability outputs of selected high-performing models using a **weighted averaging approach**. The hybrid model achieved **98.36% accuracy**, outperforming the individual models in the experimental evaluation. 
 
-### Prediction & Analysis
+### 7. Prediction & Analysis
 
 The system provides:
 
@@ -87,7 +87,7 @@ The system classifies users into:
 * **Medium Attention**
 * **Low Attention**
 
-### Feature Importance
+### 8. Feature Importance
 
 Interpretability analysis was performed to identify the factors that contribute most to attention span prediction.
 
@@ -101,7 +101,7 @@ The major contributing factors identified in the study include:
 
 Screen time, sleep quality, and physical activity were identified among the strongest contributors through the feature importance analysis. 
 
-### Model Evaluation
+### 9. Model Evaluation
 
 The implemented models were evaluated using several performance metrics:
 
